@@ -11,8 +11,7 @@
 
 @implementation VirtualStickView
 
--(void) initStick
-{
+-(void) initStick {
     imgStickNormal = [UIImage imageNamed:@"stick_normal.png"];
     imgStickHold = [UIImage imageNamed:@"stick_hold.png"];
     mCenter.x = 64;

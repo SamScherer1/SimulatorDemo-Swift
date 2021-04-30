@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A492F6551D081720008C3159 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A492F6541D081720008C3159 /* main.m */; };
-		A492F6581D081720008C3159 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A492F6571D081720008C3159 /* AppDelegate.m */; };
+		3AD19F7C263CCF20006439C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD19F7B263CCF20006439C5 /* AppDelegate.swift */; };
 		A492F65B1D081720008C3159 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A492F65A1D081720008C3159 /* RootViewController.m */; };
 		A492F65E1D081720008C3159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A492F65C1D081720008C3159 /* Main.storyboard */; };
 		A492F6601D081720008C3159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A492F65F1D081720008C3159 /* Assets.xcassets */; };
@@ -33,12 +32,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3AD19F7A263CCF20006439C5 /* DJISimulatorDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DJISimulatorDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		3AD19F7B263CCF20006439C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C518C5D84429B5BE525CB11 /* libPods-DJISimulatorDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DJISimulatorDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0365E1E627859A62E912C5B /* Pods-DJISimulatorDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DJISimulatorDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DJISimulatorDemo/Pods-DJISimulatorDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A492F6501D081720008C3159 /* DJISimulatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJISimulatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A492F6541D081720008C3159 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A492F6561D081720008C3159 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A492F6571D081720008C3159 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A492F6591D081720008C3159 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		A492F65A1D081720008C3159 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		A492F65D1D081720008C3159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,8 +88,7 @@
 		A492F6521D081720008C3159 /* DJISimulatorDemo */ = {
 			isa = PBXGroup;
 			children = (
-				A492F6561D081720008C3159 /* AppDelegate.h */,
-				A492F6571D081720008C3159 /* AppDelegate.m */,
+				3AD19F7B263CCF20006439C5 /* AppDelegate.swift */,
 				A492F6901D0821BA008C3159 /* DemoUtility.h */,
 				A492F6911D0821BA008C3159 /* DemoUtility.m */,
 				A4FA3B251D12B3EF00B0DDB5 /* VirtualStickView.h */,
@@ -106,6 +103,7 @@
 				A492F6641D081720008C3159 /* Info.plist */,
 				A492F6781D0817AC008C3159 /* Frameworks */,
 				A492F6531D081720008C3159 /* Supporting Files */,
+				3AD19F7A263CCF20006439C5 /* DJISimulatorDemo-Bridging-Header.h */,
 			);
 			path = DJISimulatorDemo;
 			sourceTree = "<group>";
@@ -113,7 +111,6 @@
 		A492F6531D081720008C3159 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A492F6541D081720008C3159 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -186,7 +183,8 @@
 				TargetAttributes = {
 					A492F64F1D081720008C3159 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 7UL3LRJL93;
+						DevelopmentTeam = R725LZS4G8;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -229,13 +227,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DJISimulatorDemo/Pods-DJISimulatorDemo-frameworks.sh",
+				"${PODS_ROOT}/DJI-SDK-iOS/iOS_Mobile_SDK/DJISDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DJISDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DJISimulatorDemo/Pods-DJISimulatorDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DJISimulatorDemo/Pods-DJISimulatorDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AEF30BE5743349A6FE466F25 /* [CP] Check Pods Manifest.lock */ = {
@@ -244,13 +245,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DJISimulatorDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DCE6007EC61735B359036ED5 /* [CP] Copy Pods Resources */ = {
@@ -259,13 +263,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DJISimulatorDemo/Pods-DJISimulatorDemo-resources.sh",
+				"${PODS_ROOT}/DJIFlySafeDatabaseResource/DJIFlySafeDatabaseResource.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DJIFlySafeDatabaseResource.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DJISimulatorDemo/Pods-DJISimulatorDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DJISimulatorDemo/Pods-DJISimulatorDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -278,9 +285,8 @@
 				A492F65B1D081720008C3159 /* RootViewController.m in Sources */,
 				A4FA3B291D12B3EF00B0DDB5 /* VirtualStickView.m in Sources */,
 				A4FA3B2A1D12B3EF00B0DDB5 /* DJISimulatorViewController.m in Sources */,
-				A492F6581D081720008C3159 /* AppDelegate.m in Sources */,
+				3AD19F7C263CCF20006439C5 /* AppDelegate.swift in Sources */,
 				A492F6921D0821BA008C3159 /* DemoUtility.m in Sources */,
-				A492F6551D081720008C3159 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,13 +399,17 @@
 			baseConfigurationReference = A0365E1E627859A62E912C5B /* Pods-DJISimulatorDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7UL3LRJL93;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = R725LZS4G8;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DJISimulatorDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dji.simulatordemo5;
+				PRODUCT_BUNDLE_IDENTIFIER = DJISwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DJISimulatorDemo/DJISimulatorDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Debug;
@@ -409,13 +419,16 @@
 			baseConfigurationReference = DC939B20A16373ED16B06447 /* Pods-DJISimulatorDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7UL3LRJL93;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = R725LZS4G8;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DJISimulatorDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dji.simulatordemo5;
+				PRODUCT_BUNDLE_IDENTIFIER = DJISwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DJISimulatorDemo/DJISimulatorDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Release;
