@@ -8,6 +8,7 @@
 #import "RootViewController.h"
 #import <DJISDK/DJISDK.h>
 #import "DemoUtility.h"
+#import "DJISimulatorDemo-Swift.h"
 
 @interface RootViewController ()<DJISDKManagerDelegate>
 
@@ -55,20 +56,16 @@
 
 #pragma mark - DJISDKManager Delegate Methods
 
-- (void)appRegisteredWithError:(NSError *)error
-{
+- (void)appRegisteredWithError:(NSError *)error {
     if (!error) {
-        
         [DJISDKManager startConnectionToProduct];
-        
-    }else
-    {
+    } else {
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-        [DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Registration Error:%@", error] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+        //[DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"Registration Error:%@", error] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+        [DemoUtility showWithResult:[NSString stringWithFormat:@"Registration Error:%@", error]];
         
         [self.connectButton setEnabled:NO];
     }
-    
 }
 
 #pragma mark DJIBaseProductDelegate Method
@@ -88,7 +85,8 @@
                 [self.navigationController popToRootViewControllerAnimated:NO];
             }
         }];
-        [DemoUtility showAlertViewWithTitle:nil message:message cancelAlertAction:cancelAction defaultAlertAction:backAction viewController:self];
+        //[DemoUtility showAlertViewWithTitle:nil message:message cancelAlertAction:cancelAction defaultAlertAction:backAction viewController:self];
+        [DemoUtility showWithResult:message];
         
         [self.connectButton setEnabled:NO];
         self.product = nil;
