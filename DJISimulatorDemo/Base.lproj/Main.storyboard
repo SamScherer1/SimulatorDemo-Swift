@@ -78,7 +78,7 @@
         <!--Simulator View Controller-->
         <scene sceneID="muN-Jh-qy1">
             <objects>
-                <viewController id="UE9-2S-TBT" customClass="DJISimulatorViewController" sceneMemberID="viewController">
+                <viewController id="UE9-2S-TBT" customClass="SimulatorViewController" customModule="DJISimulatorDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4hw-zy-M88"/>
                         <viewControllerLayoutGuide type="bottom" id="vGC-vw-sVe"/>
@@ -191,7 +191,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onSimulatorButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="w3Q-y9-7b5"/>
+                                    <action selector="onSimulatorButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="FQa-ip-Rh9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCY-zR-mfN">
@@ -221,7 +221,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onLandButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="o4i-fB-k1k"/>
+                                    <action selector="onLandButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="1DG-q6-efO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simulator State" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="5VF-GW-08j">
@@ -257,11 +257,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="simulatorButton" destination="hy2-vx-HG5" id="2kB-7i-Vj0"/>
-                        <outlet property="simulatorStateLabel" destination="5VF-GW-08j" id="gme-zL-N79"/>
+                        <outlet property="simulatorButton" destination="hy2-vx-HG5" id="5dl-bN-nA8"/>
+                        <outlet property="simulatorState" destination="5VF-GW-08j" id="tPv-Ot-NVU"/>
                         <outlet property="view" destination="raI-XD-tph" id="XgG-LP-Gbv"/>
-                        <outlet property="virtualStickLeft" destination="Jiq-xf-wLf" id="5iD-Oq-BTV"/>
-                        <outlet property="virtualStickRight" destination="YOD-HV-AEC" id="9Tk-NL-M67"/>
+                        <outlet property="virtualStickLeft" destination="Jiq-xf-wLf" id="DfB-Eg-2qF"/>
+                        <outlet property="virtualStickRight" destination="YOD-HV-AEC" id="ht6-lI-J27"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75B-W0-a8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>

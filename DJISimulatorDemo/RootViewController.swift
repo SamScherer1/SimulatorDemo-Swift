@@ -74,6 +74,7 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
 //                [self.navigationController popToRootViewControllerAnimated:NO];
 //            }
 //        }];
+            //TODO: add actions to alert
             let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
             let backAction = UIAlertAction(title: "Back", style: UIAlertAction.Style.default) { (action:UIAlertAction) in
                 if let topVC = self.navigationController?.topViewController {
