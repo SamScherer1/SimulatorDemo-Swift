@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SZb-7Q-Eec">
-    <device id="retina4_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SZb-7Q-Eec">
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RootViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="DJISimulatorDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -42,7 +39,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-Jl-76n">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-Jl-76n">
                                 <rect key="frame" x="216" y="252" width="235" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Dsl-yc-g7S"/>
@@ -52,7 +49,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onConnectButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C7t-qo-hdB"/>
                                     <segue destination="UE9-2S-TBT" kind="show" id="d4P-1M-gl9"/>
                                 </connections>
                             </button>
@@ -69,9 +65,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="7KW-QT-Of8"/>
                     <connections>
-                        <outlet property="connectButton" destination="ybi-Jl-76n" id="7Yy-nA-4fP"/>
-                        <outlet property="connectStatusLabel" destination="4Zw-Td-Yyj" id="jZJ-Ip-4sE"/>
-                        <outlet property="modelNameLabel" destination="zly-H2-Z3G" id="4hY-un-alD"/>
+                        <outlet property="connectButton" destination="ybi-Jl-76n" id="xDv-N2-sOb"/>
+                        <outlet property="connectStatusLabel" destination="4Zw-Td-Yyj" id="CWt-NP-IPO"/>
+                        <outlet property="modelNameLabel" destination="zly-H2-Z3G" id="bGQ-aD-BYw"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="LgO-lX-vl1"/>
                     </connections>
                 </viewController>
@@ -95,14 +91,14 @@
                                 <rect key="frame" x="10" y="239" width="130" height="128"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stick_base" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-np-Onp">
-                                        <rect key="frame" x="0.0" y="0.0" width="129" height="128"/>
+                                        <rect key="frame" x="-0.5" y="0.0" width="129" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="gWR-HS-t99"/>
                                             <constraint firstAttribute="width" constant="129" id="h1u-qF-Q5t"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stick_normal" translatesAutoresizingMaskIntoConstraints="NO" id="ULj-MH-YYQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="129" height="128"/>
+                                        <rect key="frame" x="-0.5" y="0.0" width="129" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="129" id="5ho-2Q-uNk"/>
                                             <constraint firstAttribute="height" constant="128" id="H8g-A9-UyV"/>
@@ -153,8 +149,8 @@
                                     <outlet property="stickViewBase" destination="IEF-en-zhc" id="Eb9-h2-bgZ"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYU-qP-cgw">
-                                <rect key="frame" x="8" y="81" width="144" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYU-qP-cgw">
+                                <rect key="frame" x="8" y="49" width="144" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="3bj-9R-2om"/>
                                     <constraint firstAttribute="height" constant="40" id="ofj-ak-M6t"/>
@@ -168,8 +164,8 @@
                                     <action selector="onEnterVirtualStickControlButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="vqT-FX-Vdk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yf9-s0-pok">
-                                <rect key="frame" x="157" y="81" width="143" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yf9-s0-pok">
+                                <rect key="frame" x="157" y="49" width="143" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hHb-Of-rZa"/>
                                     <constraint firstAttribute="width" constant="143" id="zKf-ee-ltB"/>
@@ -183,8 +179,8 @@
                                     <action selector="onExitVirtualStickControlButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="yh2-jV-tTE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hy2-vx-HG5">
-                                <rect key="frame" x="305" y="81" width="106" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hy2-vx-HG5">
+                                <rect key="frame" x="305" y="49" width="106" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="106" id="Eap-xN-lsk"/>
                                     <constraint firstAttribute="height" constant="40" id="GC5-mm-bha"/>
@@ -198,8 +194,8 @@
                                     <action selector="onSimulatorButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="w3Q-y9-7b5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCY-zR-mfN">
-                                <rect key="frame" x="417" y="81" width="69" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCY-zR-mfN">
+                                <rect key="frame" x="417" y="49" width="69" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ohl-8x-lJ7"/>
                                     <constraint firstAttribute="width" constant="69" id="myr-Lh-R8M"/>
@@ -213,8 +209,8 @@
                                     <action selector="onTakeoffButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="hrW-y1-5kS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seT-r5-dgk">
-                                <rect key="frame" x="493" y="81" width="69" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seT-r5-dgk">
+                                <rect key="frame" x="493" y="49" width="69" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4Ig-lX-tvH"/>
                                     <constraint firstAttribute="width" constant="69" id="zjB-JR-D1g"/>
@@ -278,7 +274,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SZb-7Q-Eec" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BeN-KM-gCb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -292,7 +288,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn" width="16" height="34"/>
+        <image name="btn" width="16.5" height="34"/>
         <image name="stick_base" width="128" height="128"/>
         <image name="stick_normal" width="128" height="128"/>
     </resources>
