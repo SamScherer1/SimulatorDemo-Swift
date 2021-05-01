@@ -161,7 +161,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onEnterVirtualStickControlButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="vqT-FX-Vdk"/>
+                                    <action selector="onEnterVirtualStickControlButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="KpY-b7-huF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yf9-s0-pok">
@@ -176,7 +176,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onExitVirtualStickControlButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="yh2-jV-tTE"/>
+                                    <action selector="onExitVirtualStickControlButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="Y2O-ba-KbX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hy2-vx-HG5">
@@ -206,7 +206,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onTakeoffButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="hrW-y1-5kS"/>
+                                    <action selector="onTakeoffButtonClicked:" destination="UE9-2S-TBT" eventType="touchUpInside" id="kCy-8o-IWc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seT-r5-dgk">
@@ -258,7 +258,7 @@
                     </view>
                     <connections>
                         <outlet property="simulatorButton" destination="hy2-vx-HG5" id="5dl-bN-nA8"/>
-                        <outlet property="simulatorState" destination="5VF-GW-08j" id="tPv-Ot-NVU"/>
+                        <outlet property="simulatorStateLabel" destination="5VF-GW-08j" id="Jg4-j1-O4S"/>
                         <outlet property="view" destination="raI-XD-tph" id="XgG-LP-Gbv"/>
                         <outlet property="virtualStickLeft" destination="Jiq-xf-wLf" id="DfB-Eg-2qF"/>
                         <outlet property="virtualStickRight" destination="YOD-HV-AEC" id="ht6-lI-J27"/>

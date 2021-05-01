@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import DJISDK
 
+let kUseBridge = true
+let kBridgeIP = "192.168.128.169"
 
 //TODO: consider breaking out Delegate methods in extension
 class RootViewController : UIViewController, DJISDKManagerDelegate {
@@ -54,7 +56,11 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
             self.connectButton.isEnabled = false
             return
         }
-        DJISDKManager.startConnectionToProduct()
+        if kUseBridge {
+            DJISDKManager.enableBridgeMode(withBridgeAppIP: kBridgeIP)
+        } else {
+            DJISDKManager.startConnectionToProduct()
+        }
     }
 
 //MARK: DJIBaseProductDelegate Method
