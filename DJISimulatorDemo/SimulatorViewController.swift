@@ -205,11 +205,6 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
     }
 
     @IBAction func onTakeoffButtonClicked(_ sender: Any) {
-    //    DJIFlightController* fc = [DemoUtility fetchFlightController];
-    //    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-    //
-    //    if (fc) {
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         guard let flightController = DemoUtility.fetchFlightController() else {
             //[DemoUtility showAlertViewWithTitle:nil message:@"Component not exist." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
             print("Failed to fetch flightController")
@@ -230,27 +225,23 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
 
     //- (IBAction)onLandButtonClicked:(id)sender {
     @IBAction func onLandButtonClicked(_ sender: Any) {
-        //TODO:!
-        //    DJIFlightController* fc = [DemoUtility fetchFlightController];
-        //    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-        //
-        //    if (fc) {
-        //        WeakRef(target);
-        //        [fc startLandingWithCompletion:^(NSError * _Nullable error) {
-        //            WeakReturn(target);
-        //            if (error) {
-        //                //[DemoUtility showAlertViewWithTitle:nil message:[NSString stringWithFormat:@"AutoLand : %@", error.description] cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
-        //
-        //            } else {
-        //                //[DemoUtility showAlertViewWithTitle:nil message:@"AutoLand Started." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:target];
-        //            }
-        //        }];
-        //    }
-        //    else
-        //    {
-        //        //[DemoUtility showAlertViewWithTitle:nil message:@"Component not exist." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
-        //    }
-        
+        guard let flightController = self.verboseFetchFlightController() else { return }
+        flightController.startTakeoff { (error:Error?) in
+            if let error = error {
+                DemoUtility.show(result: "Landing \(error.localizedDescription)")
+            } else {
+                DemoUtility.show(result: "Landing Success.")
+            }
+        }
+    }
+    
+    func verboseFetchFlightController() -> DJIFlightController? {
+        guard let flightController = DemoUtility.fetchFlightController() else {
+            //[DemoUtility showAlertViewWithTitle:nil message:@"Component not exist." cancelAlertAction:cancelAction defaultAlertAction:nil viewController:self];
+            DemoUtility.show(result: "Failed to fetch flightController")
+            return nil
+        }
+        return flightController
     }
 
     @objc func onStickChangedWith(notification:NSNotification) {
@@ -272,6 +263,7 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
         }
     }
 
+    //TODO: make sure values make sense... seems at least altitude is reversed...
     func set(throttle:Float, yaw:Float) {
         self.mThrottle = throttle * -2
         self.mYaw = yaw * 30
@@ -300,3 +292,27 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
         self.simulatorStateLabel.text = String(format:"Yaw: %0.2f Pitch: %0.2f, Roll: %0.2f\n PosX: %0.2f PosY: %0.2f PosZ: %0.2f", state.yaw, state.pitch, state.roll, state.positionX, state.positionY, state.positionZ)
     }
 }
+
+//extension DJIFlightController {
+//    func startTakeoff() {
+//        performVerboseAction(action: self.startTakeoff(completion:), actionName:"Takeoff")
+//    }
+//    func startLanding() {
+//        performVerboseAction(action: self.startTakeoff(completion:), actionName: "Landing")
+//    }
+//    func performVerboseAction(action:((DJICompletionBlock) -> ())?, actionName:String) {
+//        guard let action = action else {
+//            print("nil action passed to performVerboseAction")
+//            return
+//        }
+//        action( { (error:Error?) in
+//            print("entered action...")
+//        })
+////            if let error = error {
+////                DemoUtility.show(result: "\(actionName) failed: \(error.localizedDescription)")
+////            } else {
+////                DemoUtility.show(result: "\(actionName) succeeded")
+////            }
+////        })
+//    }
+//}
