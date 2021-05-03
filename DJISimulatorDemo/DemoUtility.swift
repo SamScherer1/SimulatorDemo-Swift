@@ -28,11 +28,6 @@ class DemoUtility: NSObject {//TODO: make DemoUtility a struct?
         return DJISDKManager.product() as? DJIAircraft
     }
     
-//    @objc public class func fetchCamera () -> DJICamera? {
-//        let aircraft = DJISDKManager.product() as? DJIAircraft
-//        return aircraft?.camera
-//    }
-    
     @objc public class func fetchFlightController() -> DJIFlightController? {
         let aircraft = DJISDKManager.product() as? DJIAircraft
         return aircraft?.flightController

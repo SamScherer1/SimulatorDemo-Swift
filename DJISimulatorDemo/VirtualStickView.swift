@@ -13,15 +13,11 @@ let kStickCenterTargetPositionLength : CGFloat = 20.0
 
 class VirtualStickView : UIView {
     
-    //    IBOutlet UIImageView *stickViewBase;
     @IBOutlet var stickViewBase : UIImageView!
-    //    IBOutlet UIImageView *stickView;
     @IBOutlet var stickView : UIImageView!
-    //    UIImage *imgStickNormal;
-    //    UIImage *imgStickHold;
     var imageStickNormal : UIImage
     var imageStickHold : UIImage
-    //
+    
     var mCenter : CGPoint //TODO: rename
     var mUpdateTimer : Timer? //TODO: rename
     var mTouchPoint : CGPoint? //TODO: rename... isn't it a java thing to prefix instance variables with m?

@@ -70,8 +70,6 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
             self.product = product
             self.connectButton.isEnabled = true
         } else {
-//
-//        NSString* message = [NSString stringWithFormat:@"Connection lost. Back to root."];
             let message = "Connection lost. Back to root."
 //
 //        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
