@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A507C78263E05DD00B648E2 /* VirtualStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A507C77263E05DD00B648E2 /* VirtualStickView.swift */; };
 		3AD19F7C263CCF20006439C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD19F7B263CCF20006439C5 /* AppDelegate.swift */; };
 		3AD19F7E263CD0B6006439C5 /* DemoUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD19F7D263CD0B6006439C5 /* DemoUtility.swift */; };
 		3AD19F80263CD5B5006439C5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD19F7F263CD5B5006439C5 /* RootViewController.swift */; };
@@ -15,7 +16,6 @@
 		A492F65E1D081720008C3159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A492F65C1D081720008C3159 /* Main.storyboard */; };
 		A492F6601D081720008C3159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A492F65F1D081720008C3159 /* Assets.xcassets */; };
 		A492F6631D081720008C3159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A492F6611D081720008C3159 /* LaunchScreen.storyboard */; };
-		A492F6921D0821BA008C3159 /* DemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A492F6911D0821BA008C3159 /* DemoUtility.m */; };
 		A4FA3B291D12B3EF00B0DDB5 /* VirtualStickView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA3B261D12B3EF00B0DDB5 /* VirtualStickView.m */; };
 		A4FA3B2A1D12B3EF00B0DDB5 /* DJISimulatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA3B281D12B3EF00B0DDB5 /* DJISimulatorViewController.m */; };
 		DB06E0B7E4D0CC2DF40F610E /* libPods-DJISimulatorDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C518C5D84429B5BE525CB11 /* libPods-DJISimulatorDemo.a */; };
@@ -35,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A507C77263E05DD00B648E2 /* VirtualStickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualStickView.swift; sourceTree = "<group>"; };
 		3AD19F7A263CCF20006439C5 /* DJISimulatorDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DJISimulatorDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		3AD19F7B263CCF20006439C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD19F7D263CD0B6006439C5 /* DemoUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoUtility.swift; sourceTree = "<group>"; };
@@ -51,8 +52,6 @@
 		A492F6641D081720008C3159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A492F66D1D081720008C3159 /* DJISimulatorDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJISimulatorDemoTests.m; sourceTree = "<group>"; };
 		A492F66F1D081720008C3159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A492F6901D0821BA008C3159 /* DemoUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoUtility.h; sourceTree = "<group>"; };
-		A492F6911D0821BA008C3159 /* DemoUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoUtility.m; sourceTree = "<group>"; };
 		A4FA3B251D12B3EF00B0DDB5 /* VirtualStickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualStickView.h; sourceTree = "<group>"; };
 		A4FA3B261D12B3EF00B0DDB5 /* VirtualStickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualStickView.m; sourceTree = "<group>"; };
 		A4FA3B271D12B3EF00B0DDB5 /* DJISimulatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJISimulatorViewController.h; sourceTree = "<group>"; };
@@ -95,11 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				3AD19F7B263CCF20006439C5 /* AppDelegate.swift */,
-				A492F6901D0821BA008C3159 /* DemoUtility.h */,
-				A492F6911D0821BA008C3159 /* DemoUtility.m */,
 				3AD19F7D263CD0B6006439C5 /* DemoUtility.swift */,
 				A4FA3B251D12B3EF00B0DDB5 /* VirtualStickView.h */,
 				A4FA3B261D12B3EF00B0DDB5 /* VirtualStickView.m */,
+				3A507C77263E05DD00B648E2 /* VirtualStickView.swift */,
 				A492F6591D081720008C3159 /* RootViewController.h */,
 				A492F65A1D081720008C3159 /* RootViewController.m */,
 				3AD19F7F263CD5B5006439C5 /* RootViewController.swift */,
@@ -292,11 +290,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A492F65B1D081720008C3159 /* RootViewController.m in Sources */,
+				3A507C78263E05DD00B648E2 /* VirtualStickView.swift in Sources */,
 				A4FA3B291D12B3EF00B0DDB5 /* VirtualStickView.m in Sources */,
 				A4FA3B2A1D12B3EF00B0DDB5 /* DJISimulatorViewController.m in Sources */,
 				3AD19F80263CD5B5006439C5 /* RootViewController.swift in Sources */,
 				3AD19F7C263CCF20006439C5 /* AppDelegate.swift in Sources */,
-				A492F6921D0821BA008C3159 /* DemoUtility.m in Sources */,
 				3AD19F7E263CD0B6006439C5 /* DemoUtility.swift in Sources */,
 				3AD19F82263DBEE3006439C5 /* SimulatorViewController.swift in Sources */,
 			);

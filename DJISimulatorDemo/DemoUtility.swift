@@ -9,7 +9,7 @@
 import Foundation
 import DJISDK
 
-class DemoUtility: NSObject {
+class DemoUtility: NSObject {//TODO: make DemoUtility a struct?
     @objc public class func show(result:String) {//TODO: convert to string once no ObjC class uses this. Also should I make this a global function like the objc original?
         DispatchQueue.main.async {
             let alertViewController = UIAlertController(title: nil, message: result as String, preferredStyle: UIAlertController.Style.alert)

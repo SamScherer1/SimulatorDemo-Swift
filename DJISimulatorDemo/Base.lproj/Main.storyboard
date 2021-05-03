@@ -87,7 +87,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jiq-xf-wLf" userLabel="VirtualStick Left" customClass="VirtualStickView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jiq-xf-wLf" userLabel="VirtualStick Left" customClass="VirtualStickView" customModule="DJISimulatorDemo" customModuleProvider="target">
                                 <rect key="frame" x="10" y="239" width="130" height="128"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stick_base" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-np-Onp">
@@ -114,11 +114,11 @@
                                     <constraint firstItem="CaB-np-Onp" firstAttribute="centerX" secondItem="Jiq-xf-wLf" secondAttribute="centerX" constant="-1" id="eEO-NY-Qt0"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="stickView" destination="ULj-MH-YYQ" id="zFz-74-9Fa"/>
-                                    <outlet property="stickViewBase" destination="CaB-np-Onp" id="yNp-9G-fc1"/>
+                                    <outlet property="stickView" destination="ULj-MH-YYQ" id="nPn-1l-Cml"/>
+                                    <outlet property="stickViewBase" destination="CaB-np-Onp" id="JDK-d7-GCG"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOD-HV-AEC" userLabel="VirtualStick Right" customClass="VirtualStickView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOD-HV-AEC" userLabel="VirtualStick Right" customClass="VirtualStickView" customModule="DJISimulatorDemo" customModuleProvider="target">
                                 <rect key="frame" x="533" y="239" width="128" height="128"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stick_base" translatesAutoresizingMaskIntoConstraints="NO" id="IEF-en-zhc">
@@ -145,8 +145,8 @@
                                     <constraint firstItem="IEF-en-zhc" firstAttribute="centerY" secondItem="YOD-HV-AEC" secondAttribute="centerY" id="s0U-4P-ObP"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="stickView" destination="4W2-io-csp" id="0UK-0U-Hhh"/>
-                                    <outlet property="stickViewBase" destination="IEF-en-zhc" id="Eb9-h2-bgZ"/>
+                                    <outlet property="stickView" destination="4W2-io-csp" id="65W-JK-uCE"/>
+                                    <outlet property="stickViewBase" destination="IEF-en-zhc" id="ccr-iV-N0z"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYU-qP-cgw">
