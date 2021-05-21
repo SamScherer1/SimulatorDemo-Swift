@@ -15,32 +15,33 @@ class VirtualStickView : UIView {
     
     @IBOutlet var stickViewBase : UIImageView!
     @IBOutlet var stickView : UIImageView!
-    var imageStickNormal : UIImage
-    var imageStickHold : UIImage
+    var imageStickNormal : UIImage?
+    var imageStickHold : UIImage?
     
-    var mCenter : CGPoint //TODO: rename
-    var mUpdateTimer : Timer? //TODO: rename
-    var mTouchPoint : CGPoint? //TODO: rename... isn't it a java thing to prefix instance variables with m?
+    var centerPoint : CGPoint?
+    var updateTimer : Timer?
+    var touchPoint : CGPoint?
 
-    //TODO: how to avoid repeated setup code? (can't call a setup function b/c no method calls until super.init())
     init(with frame:CGRect) {
-        self.imageStickNormal = UIImage(named: "stick_normal.png")!
-        self.imageStickHold = UIImage(named: "stick_hold.png")!
-        self.mCenter = CGPoint(x: 64, y: 64)
         super.init(frame: frame)
+        commonInit()
     }
 
     required init?(coder:NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    func commonInit() {
         self.imageStickNormal = UIImage(named: "stick_normal.png")!
         self.imageStickHold = UIImage(named: "stick_hold.png")!
-        self.mCenter = CGPoint(x: 64, y: 64)
-        super.init(coder: coder)
+        self.centerPoint = CGPoint(x: 64, y: 64)
     }
 
-    func notifyDir(dir:CGPoint) {//TODO: rename
-        let vdir = NSValue(cgPoint: dir)
-        let userInfo = ["dir" : vdir]
-            
+    func sendNotificationWith(direction: CGPoint) {
+        let directionValue = NSValue(cgPoint: direction)
+        let userInfo = ["dir" : directionValue]
+        
         NotificationCenter.default.post(name:NSNotification.Name(rawValue: "StickChanged"), object: self, userInfo: userInfo)
     }
 
@@ -52,31 +53,31 @@ class VirtualStickView : UIView {
     }
     
     func touchEvent(touches:Set<UITouch>) {
+        guard let centerPoint = self.centerPoint else { return }
         if touches.count != 1 { return }
 
         let touch = touches.first
         let view = touch?.view
         if view !== self { return }
 
-        let touchPoint = touch?.location(in: view) ?? self.mCenter
-        var dtarget : CGPoint?//TODO: rename
-        var dir = CGPoint(x: touchPoint.x - mCenter.x, y: touchPoint.y - mCenter.y)//TODO: rename
-        let length = sqrt(pow(dir.x,2) + pow(dir.y,2))
+        let touchPoint = touch?.location(in: view) ?? centerPoint
+        var targetDirection : CGPoint?
+        var rawDirection = CGPoint(x: touchPoint.x - centerPoint.x, y: touchPoint.y - centerPoint.y)
+        let length = sqrt(pow(rawDirection.x,2) + pow(rawDirection.y,2))
 
         if (length < 10.0) && (length > -10.0) {
-            dtarget = CGPoint(x: 0.0, y: 0.0)
-            dir.x = 0
-            dir.y = 0
+            targetDirection = CGPoint(x: 0.0, y: 0.0)
+            rawDirection.x = 0
+            rawDirection.y = 0
         } else {
             let inverseLength = 1.0 / length
-            dir.x *= inverseLength
-            dir.y *= inverseLength
-            dtarget = CGPoint(x: dir.x * kStickCenterTargetPositionLength, y: dir.y * kStickCenterTargetPositionLength)
-            //TODO: swift point class to replace CGPoint?
+            rawDirection.x *= inverseLength
+            rawDirection.y *= inverseLength
+            targetDirection = CGPoint(x: rawDirection.x * kStickCenterTargetPositionLength, y: rawDirection.y * kStickCenterTargetPositionLength)
         }
-        if let target = dtarget {
+        if let target = targetDirection {
             self.stickMoveTo(deltaToCenter: target)
-            self.notifyDir(dir: dir)
+            self.sendNotificationWith(direction: rawDirection)
         }
     }
 
@@ -89,7 +90,7 @@ class VirtualStickView : UIView {
         guard let view = touch?.view else { return }
         if view !== self { return }
 
-        self.mTouchPoint = touch?.location(in: view)
+        self.touchPoint = touch?.location(in: view)
         self.startUpdateTimer()
     }
 
@@ -98,7 +99,7 @@ class VirtualStickView : UIView {
         let touch = touches.first
         let view = touch?.view
         if view !== self { return }
-        self.mTouchPoint = touch?.location(in: view)
+        self.touchPoint = touch?.location(in: view)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -111,16 +112,16 @@ class VirtualStickView : UIView {
     
     func recenterSticks() {
         self.stickView.image = imageStickNormal
-        let dir = CGPoint(x: 0.0, y: 0.0)//TODO: both points necessary?
-        let dTarget = CGPoint(x: 0.0, y: 0.0)
-        self.stickMoveTo(deltaToCenter: dTarget)
-        self.notifyDir(dir: dir)
+        let centerPoint = CGPoint(x: 0.0, y: 0.0)
+        self.stickMoveTo(deltaToCenter: centerPoint)
+        self.sendNotificationWith(direction: centerPoint)
         self.stopUpdateTimer()
     }
 
-    @objc func onUpdateTimerTicked() {//TODO: id type in swift = Any?
-        guard let touchPoint = self.mTouchPoint else { return }
-        var dir = CGPoint(x: touchPoint.x - self.mCenter.x, y: touchPoint.y - mCenter.y )
+    @objc func onUpdateTimerTicked() {
+        guard let touchPoint = self.touchPoint else { return }
+        guard let centerPoint = self.centerPoint else { return }
+        var dir = CGPoint(x: touchPoint.x - centerPoint.x, y: touchPoint.y - centerPoint.y )
         var dTarget = dir
         let length = sqrt(pow(dir.x, 2) + pow(dir.y,2))
         
@@ -130,28 +131,25 @@ class VirtualStickView : UIView {
             dir.y *= inverseLength
             dTarget.x = dir.x * kStickCenterTargetPositionLength
             dTarget.y = dir.y * kStickCenterTargetPositionLength
-        } else {
-            dTarget.x = dir.x //TODO: can remove this ???
-            dTarget.y = dir.y
         }
 
         dir.x = dTarget.x / kStickCenterTargetPositionLength
         dir.y = dTarget.y / kStickCenterTargetPositionLength
         self.stickMoveTo(deltaToCenter: dTarget)
-        self.notifyDir(dir: dir)
+        self.sendNotificationWith(direction: dir)
     }
     
     func startUpdateTimer() {
-        if self.mUpdateTimer == nil {
-            self.mUpdateTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(onUpdateTimerTicked), userInfo: nil, repeats: true)
-            self.mUpdateTimer?.fire()
+        if self.updateTimer == nil {
+            self.updateTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(onUpdateTimerTicked), userInfo: nil, repeats: true)
+            self.updateTimer?.fire()
         }
     }
 
     func stopUpdateTimer() {
-        if let updateTimer = self.mUpdateTimer {
+        if let updateTimer = self.updateTimer {
             updateTimer.invalidate()
-            mUpdateTimer = nil
+            self.updateTimer = nil
         }
     }
 }

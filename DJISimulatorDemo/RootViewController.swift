@@ -10,20 +10,19 @@ import Foundation
 import UIKit
 import DJISDK
 
-let kUseBridge = true
-let kBridgeIP = "192.168.128.169"
-
-//TODO: consider breaking out Delegate methods in extension
 class RootViewController : UIViewController, DJISDKManagerDelegate {
     var product : DJIBaseProduct?
     @IBOutlet weak var connectStatusLabel: UILabel!
     @IBOutlet weak var modelNameLabel: UILabel!
     @IBOutlet weak var connectButton: UIButton!
     
+    fileprivate let useBridge = true
+    fileprivate let bridgeIP = "192.168.128.169"
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-//    //Please enter the App Key in info.plist file to register the app.
+        //Please enter the App Key in info.plist file to register the app.
         DJISDKManager.registerApp(with: self)
         if let product = self.product {
             self .updateStatusBasedOn(product)
@@ -45,12 +44,12 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
 //MARK: - DJISDKManager Delegate Methods
     func appRegisteredWithError(_ error: Error?) {
         if let error = error {
-            DemoUtility.show(result: "Registration Error: \(error)")
+            showAlertWith("Registration Error: \(error)")
             self.connectButton.isEnabled = false
             return
         }
-        if kUseBridge {
-            DJISDKManager.enableBridgeMode(withBridgeAppIP: kBridgeIP)
+        if useBridge {
+            DJISDKManager.enableBridgeMode(withBridgeAppIP: bridgeIP)
         } else {
             DJISDKManager.startConnectionToProduct()
         }
@@ -85,7 +84,7 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
                 }
             }
         }
-        DemoUtility.showAlertWith(title: nil, message: message, cancelAction: cancelAction, defaultAction: backAction, presentingViewController: self)
+        showAlertWith(title: nil, message: message, cancelAction: cancelAction, defaultAction: backAction, presentingViewController: self)
         self.connectButton.isEnabled = false
         self.product = nil
     }
@@ -101,7 +100,5 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
         }
     }
     
-    func didUpdateDatabaseDownloadProgress(_ progress: Progress) {
-        //TODO: Unused?
-    }
+    func didUpdateDatabaseDownloadProgress(_ progress: Progress) { }
 }

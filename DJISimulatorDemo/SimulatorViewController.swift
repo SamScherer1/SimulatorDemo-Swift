@@ -43,12 +43,10 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
                                                object: nil)
     }
 
-    //
-    //-(void)viewWillAppear:(BOOL)animated {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if let flightController = DemoUtility.fetchFlightController(), let simulator = flightController.simulator {
+        if let flightController = fetchFlightController(), let simulator = flightController.simulator {
             self.isSimulatorOn = simulator.isSimulatorActive
             self.updateSimulatorUI()
             
@@ -57,12 +55,10 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
         }
     }
 
-    //
-    //-(void)viewWillDisappear:(BOOL)animated {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if let flightController = DemoUtility.fetchFlightController(), let simulator = flightController.simulator {
+        if let flightController = fetchFlightController(), let simulator = flightController.simulator {
             simulator.removeObserver(self, forKeyPath: "isSimulatorActive")
             simulator.delegate = nil
         }
@@ -86,38 +82,35 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
         }
     }
     
-    
-    //TODO: refactor these enter/exit methods?
     @IBAction func onEnterVirtualStickControlButtonClicked(_ sender: Any) {
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        if let flightController = DemoUtility.fetchFlightController() {
+        if let flightController = fetchFlightController() {
             flightController.yawControlMode = .angularVelocity
             flightController.rollPitchControlMode = .velocity
 
             flightController.setVirtualStickModeEnabled(true) { (error:Error?) in
                 if let error = error {
-                    DemoUtility.show(result: "Enter Virtual Stick Mode: \(error.localizedDescription)")
+                    showAlertWith("Enter Virtual Stick Mode: \(error.localizedDescription)")
                 } else {
-                    DemoUtility.show(result: "Enter Virtual Stick Mode: Succeeded")
+                    showAlertWith("Enter Virtual Stick Mode: Succeeded")
                 }
             }
         } else {
-            DemoUtility.show(result: "Component does not exist.")
+            showAlertWith("Component does not exist.")
         }
     }
     
-
     @IBAction func onExitVirtualStickControlButtonClicked(_ sender: Any) {
-        if let flightController = DemoUtility.fetchFlightController() {
+        if let flightController = fetchFlightController() {
             flightController.setVirtualStickModeEnabled(false) { (error:Error?) in
                 if let error = error {
-                    DemoUtility.show(result: "Exit Virtual Stick Mode: \(error.localizedDescription)")
+                    showAlertWith("Exit Virtual Stick Mode: \(error.localizedDescription)")
                 } else {
-                    DemoUtility.show(result: "Exit Virtual Stick Mode:Succeeded")
+                    showAlertWith("Exit Virtual Stick Mode:Succeeded")
                 }
             }
         } else {
-            DemoUtility.show(result: "Component does not exist.")
+            showAlertWith("Component does not exist.")
         }
     }
     
@@ -128,21 +121,21 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
             return
         }
         if !self.isSimulatorOn {
-//            // The initial aircraft's position in the simulator.
+            // The initial aircraft's position in the simulator.
             let location = CLLocationCoordinate2DMake(22, 113)
             simulator.start(withLocation: location, updateFrequency: 20, gpsSatellitesNumber: 10) { (error:Error?) in
                 if let error = error {
-                    DemoUtility.show(result: "Start simulator error: \(error.localizedDescription)")
+                    showAlertWith("Start simulator error: \(error.localizedDescription)")
                 } else {
-                    DemoUtility.show(result: "Start simulator succeeded.")
+                    showAlertWith("Start simulator succeeded.")
                 }
             }
         } else {
             simulator.stop() { (error:Error?) in
                 if let error = error {
-                    DemoUtility.show(result: "Stop simulator error: \(error.localizedDescription)")
+                    showAlertWith("Stop simulator error: \(error.localizedDescription)")
                 } else {
-                    DemoUtility.show(result: "Stop simulator succeeded.")
+                    showAlertWith("Stop simulator succeeded.")
                 }
             }
         }
@@ -151,42 +144,38 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
     @IBAction func onTakeoffButtonClicked(_ sender: Any) {
         self.verboseFetchFlightController()?.startTakeoff { (error:Error?) in
             if let error = error {
-                DemoUtility.show(result: "Takeoff \(error.localizedDescription)")
+                showAlertWith("Takeoff \(error.localizedDescription)")
 
             } else {
-                DemoUtility.show(result: "Takeoff Success.")
+                showAlertWith("Takeoff Success.")
             }
         }
     }
 
-    //- (IBAction)onLandButtonClicked:(id)sender {
     @IBAction func onLandButtonClicked(_ sender: Any) {
         self.verboseFetchFlightController()?.startTakeoff { (error:Error?) in
             if let error = error {
-                DemoUtility.show(result: "Landing \(error.localizedDescription)")
+                showAlertWith("Landing \(error.localizedDescription)")
             } else {
-                DemoUtility.show(result: "Landing Success.")
+                showAlertWith("Landing Success.")
             }
         }
     }
     
     func verboseFetchFlightController() -> DJIFlightController? {
-        guard let flightController = DemoUtility.fetchFlightController() else {
-            DemoUtility.show(result: "Failed to fetch flightController")
+        guard let flightController = fetchFlightController() else {
+            showAlertWith("Failed to fetch flightController")
             return nil
         }
         return flightController
     }
 
     @objc func onStickChangedWith(notification:NSNotification) {
-        //    NSDictionary *dict = [notification userInfo];
         let userInfoDictionary = notification.userInfo
-        //    NSValue *vdir = [dict valueForKey:@"dir"];
         guard let directionValue = userInfoDictionary?["dir"] as? NSValue else {
             print("Failed to get directionValue from stick changed notification")
             return
         }
-        //    CGPoint dir = [vdir CGPointValue];
         let directionPoint = directionValue.cgPointValue
         if let virtualStick = notification.object as? VirtualStickView {
             if virtualStick === self.virtualStickLeft {
@@ -214,7 +203,7 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
                                                            roll: self.mXVelocity,
                                                            yaw: self.mYaw,
                                                            verticalThrottle: self.mThrottle)
-        if let flightController = DemoUtility.fetchFlightController(), let _ = flightController.simulator {
+        if let flightController = fetchFlightController(), let _ = flightController.simulator {
             flightController.send(controlData, withCompletion: nil)
         }
     }
