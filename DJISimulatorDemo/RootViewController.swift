@@ -3,7 +3,7 @@
 //  DJISimulatorDemo
 //
 //  Created by Samuel Scherer on 4/30/21.
-//  Copyright © 2021 Demo. All rights reserved.
+//  Copyright © 2021 RIIS. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
     @IBOutlet weak var modelNameLabel: UILabel!
     @IBOutlet weak var connectButton: UIButton!
     
-    fileprivate let useBridge = true
+    fileprivate let useBridge = false
     fileprivate let bridgeIP = "192.168.128.169"
     
     override func viewDidAppear(_ animated: Bool) {

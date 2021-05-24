@@ -93,16 +93,8 @@
 				A492F6611D081720008C3159 /* LaunchScreen.storyboard */,
 				A492F6641D081720008C3159 /* Info.plist */,
 				A492F6781D0817AC008C3159 /* Frameworks */,
-				A492F6531D081720008C3159 /* Supporting Files */,
 			);
 			path = DJISimulatorDemo;
-			sourceTree = "<group>";
-		};
-		A492F6531D081720008C3159 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A492F66C1D081720008C3159 /* DJISimulatorDemoTests */ = {

@@ -3,7 +3,7 @@
 //  DJISimulatorDemo
 //
 //  Created by Samuel Scherer on 4/30/21.
-//  Copyright © 2021 Demo. All rights reserved.
+//  Copyright © 2021 RIIS. All rights reserved.
 //
 
 import Foundation

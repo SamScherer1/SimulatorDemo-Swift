@@ -3,7 +3,7 @@
 //  DJISimulatorDemo
 //
 //  Created by Samuel Scherer on 5/1/21.
-//  Copyright © 2021 Demo. All rights reserved.
+//  Copyright © 2021 RIIS. All rights reserved.
 
 /**
  *  This file demonstrates how to use the advanced set of methods in DJIFlightController to control the aircraft and how to start the simulator.
