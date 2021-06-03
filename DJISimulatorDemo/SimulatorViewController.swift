@@ -67,7 +67,6 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
     //MARK: - Custom Methods
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let change = change, keyPath == "isSimulatorActive" {
-            //self.isSimulatorOn = Bool(change[NSKeyValueChangeNewKey])
             self.isSimulatorOn = change[NSKeyValueChangeKey.newKey] as? Bool ?? false
             self.updateSimulatorUI()
         }
@@ -83,7 +82,6 @@ class SimulatorViewController : UIViewController, DJISimulatorDelegate {
     }
     
     @IBAction func onEnterVirtualStickControlButtonClicked(_ sender: Any) {
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         if let flightController = fetchFlightController() {
             flightController.yawControlMode = .angularVelocity
             flightController.rollPitchControlMode = .velocity

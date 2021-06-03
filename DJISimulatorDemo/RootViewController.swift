@@ -25,7 +25,7 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
         //Please enter the App Key in info.plist file to register the app.
         DJISDKManager.registerApp(with: self)
         if let product = self.product {
-            self .updateStatusBasedOn(product)
+            self.updateStatusBasedOn(product)
         }
     }
 
@@ -100,5 +100,6 @@ class RootViewController : UIViewController, DJISDKManagerDelegate {
         }
     }
     
+    //Unused, but required by DJISDKManagerDelegate
     func didUpdateDatabaseDownloadProgress(_ progress: Progress) { }
 }
